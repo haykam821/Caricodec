@@ -1,0 +1,14 @@
+{
+	"text.caricodec.field.caricodec.boolean": "Boolean",
+	"text.caricodec.field.caricodec.byte": "Byte",
+	"text.caricodec.field.caricodec.double": "Double",
+	"text.caricodec.field.caricodec.float": "Float",
+	"text.caricodec.field.caricodec.inner": "Inner",
+	"text.caricodec.field.caricodec.inner.checked": "Checked",
+	"text.caricodec.field.caricodec.int": "Integer",
+	"text.caricodec.field.caricodec.long": "Long",
+	"text.caricodec.field.caricodec.pos": "Position",
+	"text.caricodec.field.caricodec.short": "Short",
+	"text.caricodec.field.caricodec.string": "String",
+	"text.caricodec.title.caricodec": "Caricodec"
+}

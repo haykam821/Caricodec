@@ -1,0 +1,23 @@
+{
+	"schemaVersion": 1,
+	"id": "caricodec-api",
+	"version": "${version}",
+	"name": "Caricodec API",
+	"description": "The API for Caricodec.",
+	"authors": [
+		"haykam821"
+	],
+	"contact": {
+		"homepage": "https://github.com/haykam821/Caricodec#readme",
+		"issues": "https://github.com/haykam821/Caricodec/issues"
+	},
+	"custom": {
+		"modmenu": {
+			"parent": "caricodec",
+			"badges": [
+				"library"
+			]
+		}
+	},
+	"license": "MIT"
+}

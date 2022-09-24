@@ -1,0 +1,33 @@
+dependencies {
+	implementation(project(path: ":api", configuration: "namedElements"))
+
+	// Fabric API
+	modImplementation("net.fabricmc.fabric-api:fabric-api:${project.fabric_version}")
+}
+
+sourceSets {
+	testmod {
+		runtimeClasspath += main.runtimeClasspath
+		compileClasspath += main.compileClasspath
+	}
+}
+
+loom {
+	runs {
+		testmodClient {
+			client()
+			source(sourceSets.testmod)
+
+			name = "Test Mod Client"
+			ideConfigGenerated = true
+		}
+
+		testmodServer {
+			server()
+			source(sourceSets.testmod)
+
+			name = "Test Mod Server"
+			ideConfigGenerated = true
+		}
+	}
+}

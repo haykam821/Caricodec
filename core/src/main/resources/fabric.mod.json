@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "caricodec-core",
+	"version": "${version}",
+	"name": "Caricodec Core",
+	"description": "The core implementation for Caricodec.",
+	"authors": [
+		"haykam821"
+	],
+	"contact": {
+		"homepage": "https://github.com/haykam821/Caricodec#readme",
+		"issues": "https://github.com/haykam821/Caricodec/issues"
+	},
+	"entrypoints": {
+		"caricodec:implementation": [
+			"io.github.haykam821.caricodec.CaricodecCoreImplProvider"
+		]
+	},
+	"mixins": [
+		"caricodec.mixin.json"
+	],
+	"custom": {
+		"modmenu": {
+			"parent": "caricodec",
+			"badges": [
+				"library"
+			]
+		}
+	},
+	"license": "MIT",
+	"depends": {
+		"caricodec-api": "*"
+	}
+}

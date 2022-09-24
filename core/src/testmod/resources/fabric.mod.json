@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "caricodec-core-test-mod",
+	"version": "${version}",
+	"name": "Caricodec Core Test Mod",
+	"description": "A test mod for Caricodec Core",
+	"authors": [
+		"haykam821"
+	],
+	"contact": {
+		"homepage": "https://github.com/haykam821/Caricodec#readme",
+		"issues": "https://github.com/haykam821/Caricodec/issues"
+	},
+	"entrypoints": {
+		"main": [
+			"io.github.haykam821.caricodec.test.CaricodecTest"
+		],
+		"client": [
+			"io.github.haykam821.caricodec.test.CaricodecTestClient"
+		],
+		"caricodec:provider": [
+			"io.github.haykam821.caricodec.test.CaricodecTestProvider"
+		]
+	},
+	"custom": {
+		"modmenu": {
+			"parent": "caricodec-core"
+		}
+	},
+	"license": "MIT",
+	"depends": {
+		"caricodec-core": "*"
+	}
+}

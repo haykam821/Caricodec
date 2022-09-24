@@ -1,0 +1,25 @@
+{
+	"schemaVersion": 1,
+	"id": "caricodec",
+	"version": "${version}",
+	"name": "Caricodec",
+	"description": "A configuration library for Minecraft built on codecs.",
+	"authors": [
+		"haykam821"
+	],
+	"contact": {
+		"homepage": "https://github.com/haykam821/Caricodec#readme",
+		"issues": "https://github.com/haykam821/Caricodec/issues"
+	},
+	"custom": {
+		"modmenu": {
+			"badges": [
+				"library"
+			]
+		}
+	},
+	"license": "MIT",
+	"depends": {
+		"fabricloader": ">=0.4.0"
+	}
+}
