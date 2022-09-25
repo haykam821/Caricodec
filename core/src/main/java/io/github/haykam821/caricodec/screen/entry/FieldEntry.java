@@ -13,7 +13,7 @@ import net.minecraft.client.gui.widget.ElementListWidget;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
 
-public class FieldEntry<V> extends ElementListWidget.Entry<FieldEntry<V>> implements Comparable<FieldEntry<?>> {
+public class FieldEntry<V> extends ElementListWidget.Entry<FieldEntry<?>> implements Comparable<FieldEntry<?>> {
 	protected final MinecraftClient client;
 	protected final CaricodecConfigScreen<?> screen;
 	protected final FieldIndex<V> field;

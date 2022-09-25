@@ -1,0 +1,13 @@
+repositories {
+	maven {
+		name = "TerraformersMC"
+		url = "https://maven.terraformersmc.com/"
+	}
+}
+
+dependencies {
+	implementation(project(path: ":api", configuration: "namedElements"))
+
+	// Mod Menu
+	modImplementation("com.terraformersmc:modmenu:${project.mod_menu_version}")
+}

@@ -1,14 +1,7 @@
 plugins {
-	id "fabric-loom" version "1.0.+"
+	id "fabric-loom" version "1.0.+" apply false
 	id "maven-publish"
 }
-
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
-
-archivesBaseName = project.archives_base_name
-version = project.mod_version
-group = project.maven_group
 
 repositories {
 	maven {
@@ -19,6 +12,13 @@ repositories {
 
 allprojects {
 	apply(plugin: "fabric-loom")
+
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
+
+	archivesBaseName = project.archives_base_name
+	version = project.mod_version
+	group = project.maven_group
 
 	loom {
 		runtimeOnlyLog4j = true
@@ -31,7 +31,7 @@ allprojects {
 		modImplementation("net.fabricmc:fabric-loader:${project.loader_version}")
 	}
 
-	processResources {
+	tasks.withType(ProcessResources).configureEach {
 		inputs.property "version", project.version
 
 		filesMatching("fabric.mod.json") {
@@ -48,7 +48,41 @@ allprojects {
 	}
 }
 
+subprojects {
+	archivesBaseName += "-" + it.name
+}
+
+sourceSets {
+	testmod {
+		runtimeClasspath += main.runtimeClasspath
+		compileClasspath += main.compileClasspath
+	}
+}
+
+loom {
+	runs {
+		testmodClient {
+			client()
+			source(sourceSets.testmod)
+
+			name = "Test Mod Client"
+		}
+
+		testmodServer {
+			server()
+			source(sourceSets.testmod)
+
+			name = "Test Mod Server"
+		}
+	}
+
+	createRemapConfigurations(sourceSets.testmod)
+}
+
 dependencies {
+	// Fabric API
+	modImplementation("net.fabricmc.fabric-api:fabric-api:${project.fabric_version}")
+
 	afterEvaluate {
 		subprojects.each {
 			implementation(project(path: "${it.name}", configuration: "namedElements"))

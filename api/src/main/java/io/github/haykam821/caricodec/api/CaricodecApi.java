@@ -11,4 +11,9 @@ public interface CaricodecApi {
 	 * @param clazz the class of the configuration
 	 */
 	public <T> CaricodecConfigHolder<T> get(String id);
+
+	/**
+	 * {@return all configuration holders}
+	 */
+	public Iterable<CaricodecConfigHolder<?>> getAllHolders();
 }

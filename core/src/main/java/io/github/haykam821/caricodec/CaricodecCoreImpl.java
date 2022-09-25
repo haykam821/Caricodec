@@ -15,6 +15,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.common.collect.ImmutableSet;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
@@ -51,6 +52,11 @@ public class CaricodecCoreImpl implements CaricodecApi {
 	@SuppressWarnings("unchecked")
 	public <T> CaricodecConfigHolder<T> get(String id) {
 		return (CaricodecConfigHolder<T>) this.holders.get(id);
+	}
+
+	@Override
+	public Iterable<CaricodecConfigHolder<?>> getAllHolders() {
+		return ImmutableSet.copyOf(this.holders.values());
 	}
 
 	private static Map<String, CaricodecConfigHolder<?>> loadConfigs() {

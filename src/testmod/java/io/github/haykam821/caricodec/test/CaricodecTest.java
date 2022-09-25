@@ -9,7 +9,7 @@ import io.github.haykam821.caricodec.test.config.CaricodecTestConfig;
 import net.fabricmc.api.ModInitializer;
 
 public class CaricodecTest implements ModInitializer {
-	protected static final Logger LOGGER = LoggerFactory.getLogger("Caricodec Core Test Mod");
+	protected static final Logger LOGGER = LoggerFactory.getLogger("Caricodec Test Mod");
 
 	@Override
 	public void onInitialize() {

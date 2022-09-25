@@ -1,0 +1,32 @@
+{
+	"schemaVersion": 1,
+	"id": "caricodec-mod-menu-provider",
+	"version": "${version}",
+	"name": "Caricodec Mod Menu Provider",
+	"description": "Provides Caricodec configuration screens to Mod Menu.",
+	"authors": [
+		"haykam821"
+	],
+	"contact": {
+		"homepage": "https://github.com/haykam821/Caricodec#readme",
+		"issues": "https://github.com/haykam821/Caricodec/issues"
+	},
+	"entrypoints": {
+		"modmenu": [
+			"io.github.haykam821.caricodec.CaricodecModMenuProvider"
+		]
+	},
+	"custom": {
+		"modmenu": {
+			"parent": "caricodec",
+			"badges": [
+				"library"
+			]
+		}
+	},
+	"license": "MIT",
+	"depends": {
+		"caricodec-api": "*",
+		"modmenu": "*"
+	}
+}

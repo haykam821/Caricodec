@@ -1,9 +1,9 @@
 {
 	"schemaVersion": 1,
-	"id": "caricodec-core-test-mod",
+	"id": "caricodec-test-mod",
 	"version": "${version}",
-	"name": "Caricodec Core Test Mod",
-	"description": "A test mod for Caricodec Core",
+	"name": "Caricodec Test Mod",
+	"description": "A test mod for Caricodec.",
 	"authors": [
 		"haykam821"
 	],
@@ -24,11 +24,12 @@
 	},
 	"custom": {
 		"modmenu": {
-			"parent": "caricodec-core"
+			"parent": "caricodec"
 		}
 	},
 	"license": "MIT",
 	"depends": {
-		"caricodec-core": "*"
+		"caricodec-core": "*",
+		"fabric": "*"
 	}
 }
