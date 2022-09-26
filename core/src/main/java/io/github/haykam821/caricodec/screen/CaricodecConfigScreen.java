@@ -30,6 +30,7 @@ public class CaricodecConfigScreen<T> extends Screen {
 	private final CodecIndexer indexer;
 
 	private final JsonObject tree;
+	private final Set<FieldChange<?>> originalValues = new HashSet<>();
 	private final Set<FieldChange<?>> changes = new HashSet<>();
 
 	public CaricodecConfigScreen(Screen parent, CaricodecConfigHolder<T> holder) {
@@ -42,6 +43,10 @@ public class CaricodecConfigScreen<T> extends Screen {
 
 		DataResult<JsonElement> result = holder.getCodec().encodeStart(CaricodecCoreImpl.OPS, holder.getConfig());
 		this.tree = result.get().left().get().getAsJsonObject();
+
+		for (FieldIndex<?> field : this.indexer.getResults()) {
+			this.storeOriginalValue(field);
+		}
 	}
 
 	@Override
@@ -78,7 +83,7 @@ public class CaricodecConfigScreen<T> extends Screen {
 		this.saveButton.active = !this.changes.isEmpty();
 	}
 
-	public <V> V getValue(FieldIndex<V> field) {
+	private <V> V getValue(FieldIndex<V> field) {
 		Codec<V> codec = field.getCodec();
 		JsonObject object = this.tree;
 
@@ -122,18 +127,34 @@ public class CaricodecConfigScreen<T> extends Screen {
 	}
 
 	public <V> void stageValue(FieldIndex<V> field, V value) {
-		this.changes.add(new FieldChange<>(field, value));
+		// Remove previous value if exists
+		this.clearStagedValue(field);
+
+		if (value != null) {
+			// Prevent staging value if matching original value
+			for (FieldChange<?> original : this.originalValues) {
+				if (original.value().equals(value)) {
+					return;
+				}
+			}
+
+			this.changes.add(new FieldChange<>(field, value));
+		}
 	}
 
 	@SuppressWarnings("unchecked")
-	public <V> V getStagedValue(FieldIndex<V> field) {
-		for (FieldChange<?> change : this.changes) {
-			if (change.field() == field) {
-				return (V) change.value();
+	public <V> V getOriginalValue(FieldIndex<V> field) {
+		for (FieldChange<?> original : this.originalValues) {
+			if (original.field() == field) {
+				return (V) original.value();
 			}
 		}
 
 		return null;
+	}
+
+	public <V> void storeOriginalValue(FieldIndex<V> field) {
+		this.originalValues.add(new FieldChange<>(field, this.getValue(field)));
 	}
 
 	public void clearStagedValue(FieldIndex<?> field) {

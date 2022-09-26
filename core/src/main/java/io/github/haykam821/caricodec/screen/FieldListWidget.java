@@ -4,12 +4,14 @@ import com.mojang.serialization.Codec;
 
 import io.github.haykam821.caricodec.index.CodecIndexer;
 import io.github.haykam821.caricodec.index.FieldIndex;
+import io.github.haykam821.caricodec.screen.entry.BlockPosFieldEntry;
 import io.github.haykam821.caricodec.screen.entry.BooleanFieldEntry;
 import io.github.haykam821.caricodec.screen.entry.FieldEntry;
 import io.github.haykam821.caricodec.screen.entry.ParsedFieldEntry;
 import io.github.haykam821.caricodec.screen.entry.StringFieldEntry;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.widget.ElementListWidget;
+import net.minecraft.util.math.BlockPos;
 
 public class FieldListWidget extends ElementListWidget<FieldEntry<?>> {
 	private final CaricodecConfigScreen<?> screen;
@@ -46,6 +48,8 @@ public class FieldListWidget extends ElementListWidget<FieldEntry<?>> {
 			return new BooleanFieldEntry(client, screen, (FieldIndex<Boolean>) field, id);
 		} else if (codec == Codec.STRING) {
 			return new StringFieldEntry(client, screen, (FieldIndex<String>) field, id);
+		} else if (codec == BlockPos.CODEC) {
+			return new BlockPosFieldEntry(client, screen, (FieldIndex<BlockPos>) field, id);
 		} else {
 			return new ParsedFieldEntry<>(client, screen, field, id);
 		}

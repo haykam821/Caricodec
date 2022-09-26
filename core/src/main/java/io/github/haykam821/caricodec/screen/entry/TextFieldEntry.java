@@ -35,13 +35,6 @@ public abstract class TextFieldEntry<V> extends WidgetFieldEntry<TextFieldWidget
 
 	public void updateText(String text) {
 		V value = this.parse(text);
-
-		if (value == null) {
-			this.screen.clearStagedValue(field);
-		} else if (!value.equals(this.value)) {
-			this.screen.stageValue(field, value);
-		}
-
-		this.value = value;
+		this.screen.stageValue(field, value);
 	}
 }

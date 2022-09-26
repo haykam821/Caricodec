@@ -19,7 +19,7 @@ public abstract class WidgetFieldEntry<W extends ClickableWidget, V> extends Fie
 	public WidgetFieldEntry(MinecraftClient client, CaricodecConfigScreen<?> screen, FieldIndex<V> field, String id) {
 		super(client, screen, field, id);
 
-		this.value = screen.getValue(field);
+		this.value = screen.getOriginalValue(field);
 		this.widget = this.createWidget();
 	}
 
