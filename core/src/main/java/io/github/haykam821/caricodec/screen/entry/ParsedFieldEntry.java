@@ -17,25 +17,17 @@ public class ParsedFieldEntry<T> extends TextFieldEntry<T> {
 
 	@Override
 	public T parse(String text) {
-		try {
-			JsonElement element = JsonParser.parseString(text);
+		JsonElement element = JsonParser.parseString(text);
 
-			DataResult<Pair<T, JsonElement>> result = field.getCodec().decode(CaricodecCoreImpl.OPS, element);
-			return result.get().left().get().getFirst();
-		} catch (Exception exception) {
-			return null;
-		}
+		DataResult<Pair<T, JsonElement>> result = field.getCodec().decode(CaricodecCoreImpl.OPS, element);
+		return result.get().left().get().getFirst();
 	}
 
 	@Override
 	public String serialize() {
-		try {
-			DataResult<JsonElement> result = field.getCodec().encodeStart(CaricodecCoreImpl.OPS, this.value);
-			JsonElement element = result.get().left().get();
+		DataResult<JsonElement> result = field.getCodec().encodeStart(CaricodecCoreImpl.OPS, this.value);
+		JsonElement element = result.get().left().get();
 
-			return element.toString();
-		} catch (Exception exception) {
-			return "";
-		}
+		return element.toString();
 	}
 }
