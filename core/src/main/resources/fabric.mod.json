@@ -19,6 +19,7 @@
 	"mixins": [
 		"caricodec.mixin.json"
 	],
+	"accessWidener": "caricodec.accesswidener",
 	"custom": {
 		"modmenu": {
 			"parent": "caricodec",

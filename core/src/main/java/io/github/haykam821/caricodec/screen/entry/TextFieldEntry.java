@@ -45,8 +45,8 @@ public abstract class TextFieldEntry<V> extends WidgetFieldEntry<TextFieldWidget
 	}
 
 	@Override
-	protected int getX(int x, int entryWidth) {
-		return super.getX(x, entryWidth) + 1;
+	protected int getWidgetX(int entryX) {
+		return super.getWidgetX(entryX) + 1;
 	}
 
 	@Override

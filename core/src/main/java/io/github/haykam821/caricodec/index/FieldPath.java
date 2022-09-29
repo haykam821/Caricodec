@@ -25,7 +25,7 @@ public class FieldPath implements Iterable<String>, Comparable<FieldPath> {
 		return new FieldPath(components);
 	}
 
-	public Text asText(String id) {
+	public MutableText asText(String id) {
 		MutableText text = Text.empty();
 
 		Iterator<String> iterator = this.components.iterator();
@@ -44,6 +44,10 @@ public class FieldPath implements Iterable<String>, Comparable<FieldPath> {
 		}
 
 		return text;
+	}
+
+	public MutableText getDescription(String id) {
+		return Text.translatable("text.caricodec.description." + id + "." + String.join(".", this.components));
 	}
 
 	@Override

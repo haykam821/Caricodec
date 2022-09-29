@@ -53,7 +53,7 @@ public class CaricodecConfigScreen<T> extends Screen {
 	protected void init() {
 		super.init();
 
-		this.widget = new FieldListWidget(this.client, this, 32, this.height - 32, WidgetSizes.getEntryHeight(this.client.textRenderer));
+		this.widget = new FieldListWidget(this.client, this, 32, this.height - 32);
 		this.widget.add(this.indexer, this.holder.getId());
 		this.addSelectableChild(this.widget);
 

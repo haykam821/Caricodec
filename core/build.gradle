@@ -1,3 +1,7 @@
 dependencies {
 	implementation(project(path: ":api", configuration: "namedElements"))
 }
+
+loom {
+	accessWidenerPath = file("src/main/resources/caricodec.accesswidener")
+}

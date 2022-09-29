@@ -6,7 +6,6 @@ import com.google.common.collect.ImmutableList;
 
 import io.github.haykam821.caricodec.index.FieldIndex;
 import io.github.haykam821.caricodec.screen.CaricodecConfigScreen;
-import io.github.haykam821.caricodec.screen.WidgetSizes;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.Element;
 import net.minecraft.client.gui.Selectable;
@@ -26,20 +25,12 @@ public abstract class WidgetFieldEntry<W extends ClickableWidget, V> extends Fie
 
 	protected abstract W createWidget();
 
-	protected int getX(int x, int entryWidth) {
-		return WidgetSizes.SPACING + x;
-	}
-
-	protected int getY(int y, int entryHeight) {
-		return y + this.client.textRenderer.fontHeight + WidgetSizes.SPACING;
-	}
-
 	@Override
 	public void render(MatrixStack matrices, int index, int y, int x, int entryWidth, int entryHeight, int mouseX, int mouseY, boolean hovered, float tickDelta) {
 		super.render(matrices, index, y, x, entryWidth, entryHeight, mouseX, mouseY, hovered, tickDelta);
 
-		this.widget.x = this.getX(x, entryWidth);
-		this.widget.y = this.getY(y, entryHeight);
+		this.widget.x = this.getWidgetX(x);
+		this.widget.y = this.getWidgetY(y);
 
 		this.widget.render(matrices, mouseX, mouseY, tickDelta);
 	}

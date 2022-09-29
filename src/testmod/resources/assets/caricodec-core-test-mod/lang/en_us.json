@@ -1,4 +1,6 @@
 {
+	"text.caricodec.description.caricodec.inner.checked": "This is an example description.",
+	"text.caricodec.description.caricodec.long": "This is an example description that is very long compared to most other descriptions. Because of its length, it most likely won't fit onto a single line within the configuration screen. Instead, it will wrap onto multiple lines.",
 	"text.caricodec.field.caricodec.boolean": "Boolean",
 	"text.caricodec.field.caricodec.byte": "Byte",
 	"text.caricodec.field.caricodec.double": "Double",

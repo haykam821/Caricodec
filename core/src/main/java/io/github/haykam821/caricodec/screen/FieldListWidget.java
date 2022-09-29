@@ -10,14 +10,13 @@ import io.github.haykam821.caricodec.screen.entry.FieldEntry;
 import io.github.haykam821.caricodec.screen.entry.ParsedFieldEntry;
 import io.github.haykam821.caricodec.screen.entry.StringFieldEntry;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.widget.ElementListWidget;
 import net.minecraft.util.math.BlockPos;
 
-public class FieldListWidget extends ElementListWidget<FieldEntry<?>> {
+public class FieldListWidget extends VariableHeightListWidget<FieldEntry<?>> {
 	private final CaricodecConfigScreen<?> screen;
 
-	public FieldListWidget(MinecraftClient client, CaricodecConfigScreen<?> screen, int top, int bottom, int itemHeight) {
-		super(client, screen.width, screen.height, top, bottom, itemHeight);
+	public FieldListWidget(MinecraftClient client, CaricodecConfigScreen<?> screen, int top, int bottom) {
+		super(client, screen.width, screen.height, top, bottom);
 
 		this.screen = screen;
 		this.centerListVertically = false;

@@ -41,8 +41,8 @@ public class BlockPosFieldEntry extends FieldEntry<BlockPos> {
 
 	@Override
 	public void render(MatrixStack matrices, int index, int y, int x, int entryWidth, int entryHeight, int mouseX, int mouseY, boolean hovered, float tickDelta) {
-		int widgetX = WidgetSizes.SPACING + x + 1;
-		int widgetY = y + this.client.textRenderer.fontHeight + WidgetSizes.SPACING;
+		int widgetX = this.getWidgetX(x) + 1;
+		int widgetY = this.getWidgetY(y);
 
 		this.x.setPos(widgetX, widgetY);
 		this.y.setPos(widgetX += this.x.getWidth() + WidgetSizes.SPACING + 1, widgetY);
