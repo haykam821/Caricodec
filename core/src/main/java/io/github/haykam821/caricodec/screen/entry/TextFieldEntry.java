@@ -36,7 +36,7 @@ public abstract class TextFieldEntry<V> extends WidgetFieldEntry<TextFieldWidget
 
 	@Override
 	protected TextFieldWidget createWidget() {
-		TextFieldWidget widget = new TextFieldWidget(this.client.textRenderer, 0, 0, WidgetSizes.WIDTH - 2, WidgetSizes.HEIGHT, ScreenTexts.EMPTY);
+		TextFieldWidget widget = new TextFieldWidget(this.client.textRenderer, 0, 0, WidgetSizes.FULL_WIDTH - 2, WidgetSizes.HEIGHT, ScreenTexts.EMPTY);
 
 		widget.setChangedListener(this::updateText);
 		widget.setText(this.serialize());

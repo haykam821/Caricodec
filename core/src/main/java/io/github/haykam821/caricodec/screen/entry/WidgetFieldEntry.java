@@ -6,6 +6,7 @@ import com.google.common.collect.ImmutableList;
 
 import io.github.haykam821.caricodec.index.FieldIndex;
 import io.github.haykam821.caricodec.screen.CaricodecConfigScreen;
+import io.github.haykam821.caricodec.screen.WidgetSizes;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.Element;
 import net.minecraft.client.gui.Selectable;
@@ -26,11 +27,11 @@ public abstract class WidgetFieldEntry<W extends ClickableWidget, V> extends Fie
 	protected abstract W createWidget();
 
 	protected int getX(int x, int entryWidth) {
-		return x + entryWidth - this.widget.getWidth();
+		return WidgetSizes.SPACING + x;
 	}
 
 	protected int getY(int y, int entryHeight) {
-		return y + entryHeight / 4;
+		return y + this.client.textRenderer.fontHeight + WidgetSizes.SPACING;
 	}
 
 	@Override

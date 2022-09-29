@@ -29,7 +29,7 @@ public class FieldEntry<V> extends ElementListWidget.Entry<FieldEntry<?>> implem
 	@Override
 	public void render(MatrixStack matrices, int index, int y, int x, int entryWidth, int entryHeight, int mouseX, int mouseY, boolean hovered, float tickDelta) {
 		Text text = field.getPath().asText(id);
-		client.textRenderer.draw(matrices, text, x, y + entryHeight - this.client.textRenderer.fontHeight - 1, 0xFFFFFF);
+		client.textRenderer.draw(matrices, text, x, y, 0xFFFFFF);
 	}
 
 	@Override

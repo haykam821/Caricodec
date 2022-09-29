@@ -17,8 +17,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 
 public class BlockPosFieldEntry extends FieldEntry<BlockPos> {
-	private static final int COMPONENT_SPACING = 5;
-	private static final int COMPONENT_WIDTH = WidgetSizes.WIDTH / 3 - COMPONENT_SPACING + 1;
+	private static final int COMPONENT_WIDTH = WidgetSizes.THIRD_WIDTH - WidgetSizes.SPACING + 1;
 
 	private static final ComponentUpdater UPDATE_X = (pos, x) -> new BlockPos(x, pos.getY(), pos.getZ());
 	private static final ComponentUpdater UPDATE_Y = BlockPos::withY;
@@ -42,12 +41,12 @@ public class BlockPosFieldEntry extends FieldEntry<BlockPos> {
 
 	@Override
 	public void render(MatrixStack matrices, int index, int y, int x, int entryWidth, int entryHeight, int mouseX, int mouseY, boolean hovered, float tickDelta) {
-		int widgetX = x + entryWidth + 1;
-		int widgetY = y + entryHeight / 4;
+		int widgetX = WidgetSizes.SPACING + x + 1;
+		int widgetY = y + this.client.textRenderer.fontHeight + WidgetSizes.SPACING;
 
-		this.z.setPos(widgetX -= this.z.getWidth(), widgetY);
-		this.y.setPos(widgetX -= this.y.getWidth() + COMPONENT_SPACING, widgetY);
-		this.x.setPos(widgetX -= this.x.getWidth() + COMPONENT_SPACING, widgetY);
+		this.x.setPos(widgetX, widgetY);
+		this.y.setPos(widgetX += this.x.getWidth() + WidgetSizes.SPACING + 1, widgetY);
+		this.z.setPos(widgetX += this.y.getWidth() + WidgetSizes.SPACING + 1, widgetY);
 
 		this.x.render(matrices, mouseX, mouseY, tickDelta);
 		this.y.render(matrices, mouseX, mouseY, tickDelta);

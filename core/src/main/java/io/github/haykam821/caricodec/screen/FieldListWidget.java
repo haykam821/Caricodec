@@ -32,7 +32,7 @@ public class FieldListWidget extends ElementListWidget<FieldEntry<?>> {
 
 	@Override
 	public int getRowWidth() {
-		return 350;
+		return WidgetSizes.ROW_WIDTH;
 	}
 
 	@Override

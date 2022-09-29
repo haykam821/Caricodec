@@ -15,7 +15,7 @@ public class BooleanFieldEntry extends WidgetFieldEntry<ButtonWidget, Boolean> {
 
 	@Override
 	protected ButtonWidget createWidget() {
-		return new ButtonWidget(0, 0, WidgetSizes.WIDTH, WidgetSizes.HEIGHT, this.getMessage(), this::onClick);
+		return new ButtonWidget(0, 0, WidgetSizes.FULL_WIDTH, WidgetSizes.HEIGHT, this.getMessage(), this::onClick);
 	}
 
 	public void onClick(ButtonWidget button) {

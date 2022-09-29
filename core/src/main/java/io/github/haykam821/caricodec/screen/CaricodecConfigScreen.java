@@ -53,7 +53,7 @@ public class CaricodecConfigScreen<T> extends Screen {
 	protected void init() {
 		super.init();
 
-		this.widget = new FieldListWidget(this.client, this, 32, this.height - 32, 25);
+		this.widget = new FieldListWidget(this.client, this, 32, this.height - 32, WidgetSizes.getEntryHeight(this.client.textRenderer));
 		this.widget.add(this.indexer, this.holder.getId());
 		this.addSelectableChild(this.widget);
 
@@ -132,11 +132,8 @@ public class CaricodecConfigScreen<T> extends Screen {
 
 		if (value != null) {
 			// Prevent staging value if matching original value
-			for (FieldChange<?> original : this.originalValues) {
-				if (original.value().equals(value)) {
-					return;
-				}
-			}
+			V original = this.getOriginalValue(field);
+			if (original.equals(value)) return;
 
 			this.changes.add(new FieldChange<>(field, value));
 		}
