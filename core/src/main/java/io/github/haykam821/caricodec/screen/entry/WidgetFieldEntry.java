@@ -29,8 +29,8 @@ public abstract class WidgetFieldEntry<W extends ClickableWidget, V> extends Fie
 	public void render(MatrixStack matrices, int index, int y, int x, int entryWidth, int entryHeight, int mouseX, int mouseY, boolean hovered, float tickDelta) {
 		super.render(matrices, index, y, x, entryWidth, entryHeight, mouseX, mouseY, hovered, tickDelta);
 
-		this.widget.x = this.getWidgetX(x);
-		this.widget.y = this.getWidgetY(y);
+		this.widget.setX(this.getWidgetX(x));
+		this.widget.setY(this.getWidgetY(y));
 
 		this.widget.render(matrices, mouseX, mouseY, tickDelta);
 	}
@@ -43,30 +43,5 @@ public abstract class WidgetFieldEntry<W extends ClickableWidget, V> extends Fie
 	@Override
 	public List<? extends Selectable> selectableChildren() {
 		return ImmutableList.of(this.widget);
-	}
-
-	@Override
-	public boolean mouseClicked(double mouseX, double mouseY, int button) {
-		return this.widget.mouseClicked(mouseX, mouseY, button);
-	}
-
-	@Override
-	public boolean mouseReleased(double mouseX, double mouseY, int button) {
-		return this.widget.mouseReleased(mouseX, mouseY, button);
-	}
-
-	@Override
-	public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-		return this.widget.keyPressed(keyCode, scanCode, modifiers);
-	}
-
-	@Override
-	public boolean keyReleased(int keyCode, int scanCode, int modifiers) {
-		return this.widget.keyReleased(keyCode, scanCode, modifiers);
-	}
-
-	@Override
-	public boolean charTyped(char chr, int modifiers) {
-		return this.widget.charTyped(chr, modifiers);
 	}
 }

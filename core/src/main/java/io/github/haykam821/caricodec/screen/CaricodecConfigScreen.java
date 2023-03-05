@@ -66,11 +66,17 @@ public class CaricodecConfigScreen<T> extends Screen {
 
 		int y = this.height - 27;
 
-		this.saveButton = new ButtonWidget(this.width / 2 - width - 5, y, width, height, Text.literal("Save"), this::onClickSave);
+		this.saveButton = ButtonWidget.builder(Text.literal("Save"), this::onClickSave)
+			.position(this.width / 2 - width - 5, y)
+			.size(width, height)
+			.build();
 		this.saveButton.active = false;
 		this.addDrawableChild(this.saveButton);
 
-		this.exitButton = new ButtonWidget(this.width / 2 + 5, y, width, height, Text.literal("Exit"), this::onClickExit);
+		this.exitButton = ButtonWidget.builder(Text.literal("Exit"), this::onClickExit)
+			.position(this.width / 2 + 5, y)
+			.size(width, height)
+			.build();
 		this.addDrawableChild(this.exitButton);
 	}
 

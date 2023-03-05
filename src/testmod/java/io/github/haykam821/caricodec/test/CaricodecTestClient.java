@@ -31,10 +31,13 @@ public class CaricodecTestClient implements ClientModInitializer {
 
 	private static ButtonWidget addButton(MinecraftClient client, Screen screen, int x, int y) {
 		Text text = Text.literal("CFG");
-		ButtonWidget button = new ButtonWidget(x, y, 20, 20, text, buttonx -> {
+		ButtonWidget button = ButtonWidget.builder(text, buttonx -> {
 			CaricodecTest.LOGGER.info("Opening configuration screen");
 			client.setScreen(CaricodecTestConfig.HOLDER.createScreen(screen));
-		});
+		})
+			.position(x, y)
+			.size(20, 20)
+			.build();
 
 		Screens.getButtons(screen).add(button);
 		return button;

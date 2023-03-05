@@ -68,7 +68,7 @@ public abstract class TextFieldEntry<V> extends WidgetFieldEntry<TextFieldWidget
 	}
 
 	protected static void drawOutline(MatrixStack matrices, TextFieldWidget widget, int color) {
-		TextFieldEntry.drawOutline(matrices, widget.x - 1, widget.y - 1, widget.x + widget.getWidth() + 1, widget.y + widget.getHeight() + 1, color);
+		TextFieldEntry.drawOutline(matrices, widget.getX() - 1, widget.getY() - 1, widget.getX() + widget.getWidth() + 1, widget.getY() + widget.getHeight() + 1, color);
 	}
 
 	private static void drawOutline(MatrixStack matrices, int x1, int y1, int x2, int y2, int color) {

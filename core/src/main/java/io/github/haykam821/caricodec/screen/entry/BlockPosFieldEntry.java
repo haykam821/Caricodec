@@ -65,31 +65,6 @@ public class BlockPosFieldEntry extends FieldEntry<BlockPos> {
 		return ImmutableList.of(this.x.getWidget(), this.y.getWidget(), this.z.getWidget());
 	}
 
-	@Override
-	public boolean mouseClicked(double mouseX, double mouseY, int button) {
-		return this.x.mouseClicked(mouseX, mouseY, button) || this.y.mouseClicked(mouseX, mouseY, button) || this.z.mouseClicked(mouseX, mouseY, button);
-	}
-
-	@Override
-	public boolean mouseReleased(double mouseX, double mouseY, int button) {
-		return this.x.mouseReleased(mouseX, mouseY, button) || this.y.mouseReleased(mouseX, mouseY, button) || this.z.mouseReleased(mouseX, mouseY, button);
-	}
-
-	@Override
-	public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-		return this.x.keyPressed(keyCode, scanCode, modifiers) || this.y.keyPressed(keyCode, scanCode, modifiers) || this.z.keyPressed(keyCode, scanCode, modifiers);
-	}
-
-	@Override
-	public boolean keyReleased(int keyCode, int scanCode, int modifiers) {
-		return this.x.keyReleased(keyCode, scanCode, modifiers) || this.y.keyReleased(keyCode, scanCode, modifiers) || this.z.keyReleased(keyCode, scanCode, modifiers);
-	}
-
-	@Override
-	public boolean charTyped(char chr, int modifiers) {
-		return this.x.charTyped(chr, modifiers) || this.y.charTyped(chr, modifiers) || this.z.charTyped(chr, modifiers);
-	}
-
 	private class PosComponent {
 		private final TextFieldWidget widget;
 		private final ComponentUpdater updater;
@@ -134,8 +109,8 @@ public class BlockPosFieldEntry extends FieldEntry<BlockPos> {
 		}
 
 		public void setPos(int x, int y) {
-			this.widget.x = x;
-			this.widget.y = y;
+			this.widget.setX(x);
+			this.widget.setY(y);
 		}
 
 		public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
@@ -145,26 +120,6 @@ public class BlockPosFieldEntry extends FieldEntry<BlockPos> {
 				int color = this.widget.isFocused() ? WidgetColors.FOCUSED_INVALID_OUTLINE : WidgetColors.INVALID_OUTLINE;
 				TextFieldEntry.drawOutline(matrices, this.widget, color);
 			}
-		}
-
-		public boolean mouseClicked(double mouseX, double mouseY, int button) {
-			return this.widget.mouseClicked(mouseX, mouseY, button);
-		}
-
-		public boolean mouseReleased(double mouseX, double mouseY, int button) {
-			return this.widget.mouseReleased(mouseX, mouseY, button);
-		}
-
-		public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-			return this.widget.keyPressed(keyCode, scanCode, modifiers);
-		}
-
-		public boolean keyReleased(int keyCode, int scanCode, int modifiers) {
-			return this.widget.keyReleased(keyCode, scanCode, modifiers);
-		}
-
-		public boolean charTyped(char chr, int modifiers) {
-			return this.widget.charTyped(chr, modifiers);
 		}
 	}
 

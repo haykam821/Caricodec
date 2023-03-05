@@ -1,5 +1,7 @@
 package io.github.haykam821.caricodec.screen;
 
+import java.util.List;
+
 import com.mojang.serialization.Codec;
 
 import io.github.haykam821.caricodec.index.CodecIndexer;
@@ -37,6 +39,18 @@ public class FieldListWidget extends VariableHeightListWidget<FieldEntry<?>> {
 	@Override
 	protected int getScrollbarPositionX() {
 		return super.getScrollbarPositionX() + 64;
+	}
+
+	@Override
+	public boolean mouseClicked(double mouseX, double mouseY, int button) {
+		List<FieldEntry<?>> children = List.copyOf(this.children());
+
+		// Force children to update their focus
+		for (FieldEntry<?> child : children) {
+			child.mouseClicked(mouseX, mouseY, button);
+		}
+
+		return super.mouseClicked(mouseX, mouseY, button);
 	}
 
 	@SuppressWarnings("unchecked")

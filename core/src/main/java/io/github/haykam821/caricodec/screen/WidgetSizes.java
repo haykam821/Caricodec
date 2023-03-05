@@ -3,8 +3,8 @@ package io.github.haykam821.caricodec.screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 
 public final class WidgetSizes {
-	public static final int WIDTH = ButtonWidget.field_39500;
-	public static final int HEIGHT = ButtonWidget.field_39501;
+	public static final int WIDTH = ButtonWidget.DEFAULT_WIDTH;
+	public static final int HEIGHT = ButtonWidget.DEFAULT_HEIGHT;
 
 	public static final int SPACING = 5;
 	public static final int FIELD_SPACING = SPACING * 5;
