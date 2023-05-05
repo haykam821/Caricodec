@@ -85,7 +85,7 @@ public class CaricodecConfigScreen<T> extends Screen {
 		this.widget.render(matrices, mouseX, mouseY, delta);
 		super.render(matrices, mouseX, mouseY, delta);
 
-		drawCenteredText(matrices, this.textRenderer, this.title, this.width / 2, 15, 0xFFFFFF);
+		drawCenteredTextWithShadow(matrices, this.textRenderer, this.title, this.width / 2, 15, 0xFFFFFF);
 		this.saveButton.active = !this.changes.isEmpty();
 	}
 
